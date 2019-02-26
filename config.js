@@ -1,6 +1,6 @@
 var config = {};
 
-config.database = 'express';
+config.database = 'sal';
 config.user = 'postgres';
 config.password = 'postgres';
 config.address = 'localhost';
