@@ -1,0 +1,17 @@
+extends layout
+
+block content
+  h1= title
+  body
+    form(method='POST' action='/' + user_id + '/add_note')
+      div
+        input(type="text" name="content" placeholder="Enter new note here")
+      button(type='submit') Add note
+  p Below is a list of your notes:
+  ul
+    each note in noteList
+      body
+        form(method='POST' action='/' + user_id + '/remove_note/' + note.note_id)
+          li= note.content + '  '
+            button(type='submit') X
+
