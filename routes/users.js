@@ -6,7 +6,6 @@ router.get('/get_all', getAll);
 router.post('/authenticate', authenticate);
 
 function authenticate(req, res, next) {
-  console.log(req.body)
   userService.authenticate(req.body)
     .then(user => user ? res.redirect("/" + user.user_id + "/list_notes") : res.redirect("/"))
     .catch(err => next(err));

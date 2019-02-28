@@ -8,14 +8,12 @@ var pool = new Pool({
   var users;
   pool.query("SELECT * FROM client;", (err, res) => {
     users = res.rows;
-    console.log(users)
   });
 async function authenticate({ username, password }) {
 
   const user = users.find(u => u.username === username && u.password === password);
   if (user) {
     const { password, ...userWithoutPassword } = user;
-    console.log(userWithoutPassword);
     return userWithoutPassword;
   }
 }
